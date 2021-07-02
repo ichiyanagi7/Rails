@@ -12,10 +12,12 @@ class TodolistsController < ApplicationController
     redirect_to todolist_path(list.id)
   end
 
+# 一覧表示する
   def index
     @lists=List.all
   end
 
+# 特定のファイルを表示する
   def show
     @list=List.find(params[:id])
   end
@@ -27,10 +29,14 @@ class TodolistsController < ApplicationController
   def update
     list=List.find(params[:id])
     list.update(list_params)
-    redirect_to todolist_path(list.id)
+    redirect_to todolists_path(list.id)
   end
 
+# 削除
   def destroy
+    list=List.find(params[:id])
+    list.destroy
+    redirect_to todolists_path
   end
 
   private
