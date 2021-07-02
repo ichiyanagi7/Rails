@@ -2,5 +2,7 @@
 <!--↓繰り返し処理-->
 <% @lists.each do |list| %>
 <p>タイトル</p>
-<span><%=list.title %></span>
+<span>
+  <%= link_to list.title,"/todolists/#{list.id}" %>
+</span>
 <%end%>
